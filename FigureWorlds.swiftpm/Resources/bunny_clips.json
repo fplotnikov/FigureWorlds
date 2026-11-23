@@ -1,0 +1,82 @@
+{
+  "fps": 30,
+  "frameStart": 1,
+  "frameEnd": 444,
+  "clips": [
+    {
+      "name": "idle",
+      "start": 1,
+      "end": 60,
+      "startTime": 0.0,
+      "endTime": 1.9667,
+      "loop": true
+    },
+    {
+      "name": "dance",
+      "start": 61,
+      "end": 180,
+      "startTime": 2.0,
+      "endTime": 5.9667,
+      "loop": true
+    },
+    {
+      "name": "jump",
+      "start": 181,
+      "end": 252,
+      "startTime": 6.0,
+      "endTime": 8.3667,
+      "loop": false
+    },
+    {
+      "name": "run",
+      "start": 253,
+      "end": 372,
+      "startTime": 8.4,
+      "endTime": 12.3667,
+      "loop": true
+    },
+    {
+      "name": "wave",
+      "start": 373,
+      "end": 444,
+      "startTime": 12.4,
+      "endTime": 14.7667,
+      "loop": false
+    }
+  ],
+  "fit": {
+    "top": 0.1442,
+    "eyeY": 0.1112,
+    "eyeX": 0.0171,
+    "faceZ": 0.0525,
+    "neckY": 0.0811,
+    "neckZ": 0.0333,
+    "neckRadius": 0.0252,
+    "flower": [
+      0.0203,
+      0.1421,
+      0.0175
+    ],
+    "hatScale": 0.761,
+    "noseX": 0.0001,
+    "noseY": 0.1016,
+    "noseZ": 0.0486
+  },
+  "skins": [
+    "natural",
+    "sunny",
+    "ocean",
+    "mint",
+    "berry",
+    "galaxy",
+    "snow"
+  ],
+  "posBox": [
+    -0.0506,
+    -0.0,
+    -0.0495,
+    0.0506,
+    0.2,
+    0.0495
+  ]
+}

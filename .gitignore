@@ -1,0 +1,23 @@
+# macOS / Xcode noise
+.DS_Store
+xcuserdata/
+*.xcuserstate
+DerivedData/
+build/
+.build/
+.swiftpm/xcode/xcuserdata/
+
+# Secrets — never commit
+.env
+.env.*
+*.key
+.claude.json
+*meshy*key*
+
+# Local backups made before bigger changes
+/World-backup-*/
+/Shared-backup-*/
+
+# Dev screenshots
+/screenshots/
+/screenshots-*/
