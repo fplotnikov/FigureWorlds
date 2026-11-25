@@ -401,7 +401,7 @@ struct SoundButton: View {
     var body: some View {
         Button {
             soundOn.toggle()
-            if !soundOn { SoundBoard.shared.stopAll() }
+            if soundOn { SoundBoard.shared.ui(.perk) } else { SoundBoard.shared.stopAll() }
         } label: {
             Image(systemName: soundOn ? "speaker.wave.2.fill" : "speaker.slash.fill")
                 .font(.title3.weight(.semibold))
@@ -509,6 +509,7 @@ struct ChooserPanel<Swipe: Gesture>: View {
             HStack(spacing: 8) {
                 ForEach(ChooserTab.allCases) { t in
                     Button {
+                        if tab != t { SoundBoard.shared.ui(.drape, volume: 0.35) }
                         tab = t
                     } label: {
                         Label(t.title, systemImage: t.symbol)

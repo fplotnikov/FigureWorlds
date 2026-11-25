@@ -544,6 +544,7 @@ final class WorldCoordinator: NSObject {
             me.playAction(.wave)
         case .ground(let p, let level):
             me.ignoreProp = nil
+            SoundBoard.shared.ui(.step, volume: 0.25)
             travel(me, to: village.clampToWorld(p), level: level)
         case .prop(let prop):
             if prop === me.carrying { toss(prop) } else { fetch(prop) }
@@ -791,7 +792,7 @@ final class WorldCoordinator: NSObject {
         switch thing.kind {
         case .door, .lamp, .streetLamp, .mailbox:
             setToggle(thing, !thing.isOn)
-            WorldSounds.shared.play(.click)
+            SoundBoard.shared.ui(.latch, volume: 0.5)
         case .bell:
             thing.time = 0
             WorldSounds.shared.play(.ding)
@@ -800,7 +801,7 @@ final class WorldCoordinator: NSObject {
             WorldSounds.shared.play(.splash)
         case .toyBox:
             setToggle(thing, !thing.isOn)
-            WorldSounds.shared.play(.click)
+            SoundBoard.shared.ui(.plop, volume: 0.6)
             if thing.isOn {
                 after(0.35) { [weak self] in self?.popToys(from: thing) }
             }
@@ -833,7 +834,7 @@ final class WorldCoordinator: NSObject {
         case .wardrobe:
             thing.isOn = true
             thing.time = 0
-            WorldSounds.shared.play(.click)
+            SoundBoard.shared.ui(.drape, volume: 0.5)
             after(0.5) { [weak self] in self?.controls?.openWardrobe() }
         case .ballPit:
             jumpIn(thing)
@@ -1298,6 +1299,7 @@ final class WorldCoordinator: NSObject {
                 friendCopy = nil
                 friend.face(yawFacing(from: friend.ground, to: me.ground))
                 friend.playAction(copy.action)
+                SoundBoard.shared.ui(.hail, volume: 0.35)
                 friendIdle = -Float(copy.action.duration)
             } else {
                 friendCopy = (action: copy.action, delay: left)
@@ -1404,6 +1406,7 @@ final class WorldCoordinator: NSObject {
 
     private func climb(_ w: Walker, up: Bool, then: @escaping @MainActor () -> Void) {
         guard let stairs = village.stairs else { then(); return }
+        if w === me { SoundBoard.shared.ui(.float, volume: 0.4) }
         w.run(up ? stairs.up1 : stairs.down1) { [weak w] in
             guard let w else { return }
             w.level = up ? 1 : 0
@@ -1416,7 +1419,7 @@ final class WorldCoordinator: NSObject {
         for house in village.houses {
             guard let door = house.door, !door.isOn, house.contains(a) != house.contains(b) else { continue }
             setToggle(door, true)
-            WorldSounds.shared.play(.click, volume: 0.4)
+            SoundBoard.shared.ui(.latch, volume: 0.3)
         }
     }
 
@@ -1608,7 +1611,8 @@ final class WorldCoordinator: NSObject {
             sled.position = [0, -0.05, 0]
             self.me.entity.addChild(sled)
             hill.parts["sled"]?.isEnabled = false
-            WorldSounds.shared.play(.whoosh)
+            SoundBoard.shared.ui(.drift, volume: 0.5)
+            WorldSounds.shared.play(.whoosh, volume: 0.5)
             self.me.run([
                 Walker.Key(position: p[5], yaw: 0, duration: 0.35, linear: true),
                 Walker.Key(position: p[6], yaw: 0, duration: 0.5, linear: true),

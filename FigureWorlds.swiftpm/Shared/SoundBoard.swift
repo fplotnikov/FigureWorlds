@@ -70,6 +70,31 @@ final class SoundBoard {
         player.play()
     }
 
+    /// Gentle interface sounds rendered from Bencho's free (MIT) recipes, see
+    /// Resources/Sounds/BENCHO-LICENSE.txt and make_bencho_sounds.py. Only positive, soft sounds:
+    /// nothing here means "no" or "wrong".
+    enum UISound: String, CaseIterable {
+        case plop, wisp, whisk, drape, glide, landed, perk, tick, step, hail, float, latch, drift
+    }
+    private lazy var uiPlayers: [UISound: AVAudioPlayer] = {
+        var all: [UISound: AVAudioPlayer] = [:]
+        for sound in UISound.allCases {
+            guard let url = Bundle.main.url(forResource: "bencho_" + sound.rawValue, withExtension: "wav"),
+                  let player = try? AVAudioPlayer(contentsOf: url) else { continue }
+            player.prepareToPlay()
+            all[sound] = player
+        }
+        return all
+    }()
+
+    /// Plays a short interface sound (after a tap) on top of whatever action sound plays.
+    func ui(_ sound: UISound, volume: Float = 0.45) {
+        guard enabled, let player = uiPlayers[sound] else { return }
+        player.currentTime = 0
+        player.volume = volume
+        player.play()
+    }
+
     /// Called when the speaker button turns sounds off.
     func stopAll() {
         fadeOutCurrent()
