@@ -124,8 +124,16 @@ struct ParentsSheet: View {
 
                     VStack(alignment: .leading, spacing: 6) {
                         Text("Credits").font(.headline)
-                        Text("3D models made with Meshy AI. Sounds made for Figure Shelf. No data collected.")
+                        Text("3D models made with Meshy AI. Sounds made for Figure Worlds, plus a few soft interface sounds from Bencho (bencho.dev). No data collected.")
                             .font(.subheadline)
+                        DisclosureGroup("Sound licence") {
+                            Text(SOUND_LICENCE)
+                                .font(.caption2)
+                                .frame(maxWidth: .infinity, alignment: .leading)
+                                .padding(.top, 6)
+                        }
+                        .font(.subheadline)
+                        .tint(Palette.ink)
                     }
                 }
                 .foregroundStyle(Palette.ink)
@@ -164,3 +172,27 @@ struct SafariView: UIViewControllerRepresentable {
     func makeUIViewController(context: Context) -> SFSafariViewController { SFSafariViewController(url: url) }
     func updateUIViewController(_ controller: SFSafariViewController, context: Context) {}
 }
+
+/// The MIT notice for the interface sounds (also in Resources/Sounds/BENCHO-LICENSE.txt).
+let SOUND_LICENCE = """
+Interface sounds are made from the free sound recipes of Bencho (bencho.dev), MIT License. \
+The Plop sound is rebuilt from cuelume by Daniel Belyi, MIT License.
+
+Copyright (c) 2026 Lorenzo Cabra
+Copyright (c) 2026 Daniel Belyi
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and \
+associated documentation files (the "Software"), to deal in the Software without restriction, \
+including without limitation the rights to use, copy, modify, merge, publish, distribute, \
+sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is \
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or \
+substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT \
+NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND \
+NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, \
+DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT \
+OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+"""

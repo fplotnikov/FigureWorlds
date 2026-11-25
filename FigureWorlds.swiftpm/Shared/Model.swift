@@ -632,14 +632,14 @@ final class ShelfState: ObservableObject {
 
     var canUndo: Bool { !history.isEmpty }
 
-    func choose(animal: Animal) { change { $0.animal = animal } }
-    func choose(skin: Skin) { change { $0.skin = skin } }
-    func choose(pattern: Pattern) { change { $0.pattern = pattern } }
+    func choose(animal: Animal) { change(sound: .plop) { $0.animal = animal } }
+    func choose(skin: Skin) { change(sound: .wisp) { $0.skin = skin } }
+    func choose(pattern: Pattern) { change(sound: .wisp) { $0.pattern = pattern } }
     /// Tapping a worn item again takes it off.
     func toggle(_ item: Wearable) {
-        change { $0.worn[item.slot] = $0.worn[item.slot] == item ? nil : item }
+        change(sound: .wisp) { $0.worn[item.slot] = $0.worn[item.slot] == item ? nil : item }
     }
-    func takeOff(_ slot: WearSlot) { change { $0.worn[slot] = nil } }
+    func takeOff(_ slot: WearSlot) { change(sound: .wisp) { $0.worn[slot] = nil } }
 
     /// Changes the shelf view's turning angle back to the default (StageView watches it).
     @Published private(set) var resetViewID = UUID()
@@ -653,8 +653,8 @@ final class ShelfState: ObservableObject {
     /// angle. Keeps the chosen animal. One undo step brings the look back.
     func reset() {
         let wasDefaultLook = look.skin == .natural && look.pattern == .plain && look.worn.isEmpty
-        change { $0.skin = .natural; $0.pattern = .plain; $0.worn = [:] }
-        if wasDefaultLook { SoundBoard.shared.pop() }   // change() pops only when the look changed
+        change(sound: .whisk) { $0.skin = .natural; $0.pattern = .plain; $0.worn = [:] }
+        if wasDefaultLook { SoundBoard.shared.ui(.whisk) }   // change() plays only when the look changed
         stop()
         viewTurned = false
         resetViewID = UUID()
@@ -662,6 +662,7 @@ final class ShelfState: ObservableObject {
 
     func undo() {
         guard let previous = history.popLast() else { return }
+        SoundBoard.shared.ui(.whisk)
         look = previous
     }
 
@@ -674,11 +675,11 @@ final class ShelfState: ObservableObject {
         actionRequest = ActionRequest(action: nil)
     }
 
-    private func change(_ edit: (inout Look) -> Void) {
+    private func change(sound: SoundBoard.UISound? = nil, _ edit: (inout Look) -> Void) {
         var next = look
         edit(&next)
         guard next != look else { return }
-        SoundBoard.shared.pop()
+        if let sound { SoundBoard.shared.ui(sound) } else { SoundBoard.shared.pop() }
         history.append(look)
         if history.count > 50 { history.removeFirst() }
         look = next

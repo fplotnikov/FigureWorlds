@@ -26,6 +26,7 @@ struct WorldScreen: View {
             VStack(spacing: 12) {
                 HStack {
                     RoundButton(symbol: "map.fill", highlighted: showMap, label: "Map") {
+                        SoundBoard.shared.ui(showMap ? .tick : .wisp)
                         withAnimation(.spring(duration: 0.3)) { showMap.toggle() }
                     }
                     Spacer()
@@ -42,8 +43,9 @@ struct WorldScreen: View {
                         .transition(.move(edge: .bottom).combined(with: .opacity))
                 }
                 HStack(alignment: .bottom, spacing: 14) {
-                    CharacterButton(animal: me.look.animal) { showCharacters = true }
+                    CharacterButton(animal: me.look.animal) { SoundBoard.shared.ui(.tick); showCharacters = true }
                     RoundButton(symbol: "figure.dance", highlighted: showActions, label: "Moves") {
+                        SoundBoard.shared.ui(.tick)
                         withAnimation(.easeInOut(duration: 0.25)) { showActions.toggle() }
                     }
                     Spacer()
@@ -118,7 +120,7 @@ struct MapPicker: View {
     @ViewBuilder private var tiles: some View {
         ForEach(SceneKind.allCases) { place in
             Button {
-                SoundBoard.shared.pop()
+                SoundBoard.shared.ui(.glide)
                 choose(place)
             } label: {
                 Text(place.emoji)
