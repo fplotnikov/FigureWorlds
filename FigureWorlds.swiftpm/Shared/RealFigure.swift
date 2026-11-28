@@ -33,7 +33,7 @@ final class RealModelLibrary {
         .shark: "shark", .mole: "mole", .bee: "bee", .parrot: "parrot", .koala: "koala", .panda: "panda",
         .deer: "deer", .redpanda: "redpanda", .moose: "moose", .kangaroo: "kangaroo", .giraffe: "giraffe", .capybara: "capybara",
         .trex: "trex", .triceratops: "triceratops", .stegosaurus: "stegosaurus", .velociraptor: "velociraptor", .brachiosaurus: "brachiosaurus", .spinosaurus: "spinosaurus", .ankylosaurus: "ankylosaurus", .pteranodon: "pteranodon", .parasaurolophus: "parasaurolophus", .diplodocus: "diplodocus", .pachycephalosaurus: "pachycephalosaurus", .allosaurus: "allosaurus",
-        .styracosaurus: "styracosaurus", .iguanodon: "iguanodon", .carnotaurus: "carnotaurus", .therizinosaurus: "therizinosaurus", .gallimimus: "gallimimus", .dilophosaurus: "dilophosaurus", .mosasaurus: "mosasaurus", .elasmosaurus: "elasmosaurus", .ichthyosaurus: "ichthyosaurus", .megalodon: "megalodon"
+        .styracosaurus: "styracosaurus", .iguanodon: "iguanodon", .carnotaurus: "carnotaurus", .therizinosaurus: "therizinosaurus", .gallimimus: "gallimimus", .dilophosaurus: "dilophosaurus", .kentrosaurus: "kentrosaurus", .microraptor: "microraptor", .mosasaurus: "mosasaurus", .elasmosaurus: "elasmosaurus", .ichthyosaurus: "ichthyosaurus", .megalodon: "megalodon"
     ]
 
     /// A robot's vehicle (models/make_vehicle.py): what it changes into when it runs.

@@ -90,7 +90,7 @@ would hide the animal, and it never goes outside the fence.
   the same as Figure Shelf: the first ten of each were copied in alongside the new ones. That is
   their `.usdz`, `_clips.json`, `_skin_*.jpg` and `_thumb.png` files, the robots' `_vehicle.usdz`
   and the vehicle and servo sounds. Resources are now about 307 MB. The 22 dinosaurs are in too
-  (Nov 27, 2026, about 58 MB): the 12 earlier ones, plus Styracosaurus, Iguanodon, Carnotaurus,
+  (Nov 27, 2026, about 63 MB, 24 in all): the 12 earlier ones, Kentrosaurus and Microraptor, plus Styracosaurus, Iguanodon, Carnotaurus,
   Therizinosaurus, Gallimimus and Dilophosaurus, and the sea species Mosasaur, Elasmosaurus,
   Ichthyosaur and Megalodon. They reuse Figure Shelf's models, rigs and clips; no Meshy credits.
   - **Sea species on land:** they glide just above the ground, playing their swim loop.
