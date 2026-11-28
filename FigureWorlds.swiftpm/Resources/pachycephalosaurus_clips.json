@@ -1,0 +1,82 @@
+{
+  "fps": 30,
+  "frameStart": 1,
+  "frameEnd": 444,
+  "clips": [
+    {
+      "name": "idle",
+      "start": 1,
+      "end": 60,
+      "startTime": 0.0,
+      "endTime": 1.9667,
+      "loop": true
+    },
+    {
+      "name": "dance",
+      "start": 61,
+      "end": 180,
+      "startTime": 2.0,
+      "endTime": 5.9667,
+      "loop": true
+    },
+    {
+      "name": "jump",
+      "start": 181,
+      "end": 252,
+      "startTime": 6.0,
+      "endTime": 8.3667,
+      "loop": false
+    },
+    {
+      "name": "run",
+      "start": 253,
+      "end": 372,
+      "startTime": 8.4,
+      "endTime": 12.3667,
+      "loop": true
+    },
+    {
+      "name": "wave",
+      "start": 373,
+      "end": 444,
+      "startTime": 12.4,
+      "endTime": 14.7667,
+      "loop": false
+    }
+  ],
+  "fit": {
+    "top": 0.1793,
+    "eyeY": 0.1645,
+    "eyeX": 0.0092,
+    "faceZ": 0.0772,
+    "neckY": 0.1435,
+    "neckZ": 0.059,
+    "neckRadius": 0.0208,
+    "flower": [
+      -0.1693,
+      0.1783,
+      0.0785
+    ],
+    "hatScale": 0.6,
+    "headX": -0.1589,
+    "headZ": 0.0641,
+    "faceX": -0.1914,
+    "faceYaw": -1.1868,
+    "neckX": -0.1456,
+    "neckCX": -0.1456,
+    "neckCZ": 0.059,
+    "neckPitch": 0.9106
+  },
+  "skins": [
+    "natural",
+    "sunny",
+    "ocean",
+    "mint",
+    "berry",
+    "galaxy",
+    "snow"
+  ],
+  "bodyYaw": -1.1868,
+  "mainColor": "604A34",
+  "dinosaur": true
+}

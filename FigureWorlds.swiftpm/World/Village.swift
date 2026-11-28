@@ -14,6 +14,8 @@ final class Village {
     var ambient: [String: [Entity]] = [:]
     var ambientTime: Float = 0
     var obstacles: [Obstacle] = []
+    /// Forest Pond: the water's obstacle. Sea figures (Mosasaur, Megalodon...) may swim in.
+    var pondWater: Int?
     var props: [Prop] = []
     var interactives: [Interactive] = []
     var houses: [House] = []
@@ -58,6 +60,11 @@ final class Village {
 
     func tapTarget(for entity: Entity) -> TapTarget? {
         tapTargets[ObjectIdentifier(entity)]
+    }
+
+    /// Lets a swimming figure into the pond (and keeps everyone else on the shore).
+    func letSwimmerIn(_ swimmer: Bool) {
+        if let i = pondWater { setObstacle(i, enabled: !swimmer) }
     }
 
     func setObstacle(_ index: Int, enabled: Bool) {

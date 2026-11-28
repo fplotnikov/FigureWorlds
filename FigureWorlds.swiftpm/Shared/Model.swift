@@ -61,10 +61,16 @@ enum Animal: String, CaseIterable, Identifiable, Codable {
     case deer, redpanda, moose, kangaroo, giraffe, capybara
     // dinosaurs: realistic, museum-style models
     case trex, triceratops, stegosaurus, velociraptor, brachiosaurus, spinosaurus, ankylosaurus, pteranodon, parasaurolophus, diplodocus, pachycephalosaurus, allosaurus
+    case styracosaurus, iguanodon, carnotaurus, therizinosaurus, gallimimus, dilophosaurus
+    // sea reptiles and Megalodon: they float a little above the ground and swim
+    case mosasaurus, elasmosaurus, ichthyosaurus, megalodon
 
     var id: String { rawValue }
 
     var isAnimatronic: Bool { group == .animatronics }
+
+    /// The sea reptiles and Megalodon swim (water sounds; in Figure Worlds they may swim in the pond).
+    var isSwimmer: Bool { [.mosasaurus, .elasmosaurus, .ichthyosaurus, .megalodon].contains(self) }
 
     var group: AnimalGroup {
         switch self {
@@ -72,7 +78,7 @@ enum Animal: String, CaseIterable, Identifiable, Codable {
         case .lion, .zebra, .ostrich, .horse, .tiger, .beaver, .raccoonkid, .elephant, .hippo, .rhino, .mouse, .turtle: .animals
         case .shark, .mole, .bee, .parrot, .koala, .panda: .animals
         case .deer, .redpanda, .moose, .kangaroo, .giraffe, .capybara: .animals
-        case .trex, .triceratops, .stegosaurus, .velociraptor, .brachiosaurus, .spinosaurus, .ankylosaurus, .pteranodon, .parasaurolophus, .diplodocus, .pachycephalosaurus, .allosaurus: .dinosaurs
+        case .trex, .triceratops, .stegosaurus, .velociraptor, .brachiosaurus, .spinosaurus, .ankylosaurus, .pteranodon, .parasaurolophus, .diplodocus, .pachycephalosaurus, .allosaurus, .styracosaurus, .iguanodon, .carnotaurus, .therizinosaurus, .gallimimus, .dilophosaurus, .mosasaurus, .elasmosaurus, .ichthyosaurus, .megalodon: .dinosaurs
         case .supercar, .jet, .motorcycle, .truck, .helicopter, .rally, .seaplane, .snowmobile,
              .excavator, .speedboat,
              .locomotive, .submarine, .tractor, .citybus, .forklift, .cablecar, .lunarrover, .airship: .robots
@@ -108,6 +114,8 @@ enum Animal: String, CaseIterable, Identifiable, Codable {
         case .hippo: "Hippo"
         case .rhino: "Rhino"
         case .trex: "T. rex"
+        case .mosasaurus: "Mosasaur"
+        case .ichthyosaurus: "Ichthyosaur"
         case .showelephant: "Elephant"
         case .skateostrich: "Ostrich"
         case .showkangaroo: "Kangaroo"
@@ -236,6 +244,16 @@ enum Animal: String, CaseIterable, Identifiable, Codable {
         case .diplodocus: UIColor(hex: 0x7E7A72)
         case .pachycephalosaurus: UIColor(hex: 0x7A5A3E)
         case .allosaurus: UIColor(hex: 0xA07A3E)
+        case .styracosaurus: UIColor(hex: 0x564829)
+        case .iguanodon: UIColor(hex: 0x4D4B32)
+        case .carnotaurus: UIColor(hex: 0x805A3D)
+        case .therizinosaurus: UIColor(hex: 0x826A4E)
+        case .gallimimus: UIColor(hex: 0x7D7063)
+        case .dilophosaurus: UIColor(hex: 0x776844)
+        case .mosasaurus: UIColor(hex: 0x72797B)
+        case .elasmosaurus: UIColor(hex: 0x695F54)
+        case .ichthyosaurus: UIColor(hex: 0x5F6869)
+        case .megalodon: UIColor(hex: 0x69665E)
         }
     }
 
@@ -274,7 +292,7 @@ enum Animal: String, CaseIterable, Identifiable, Codable {
         case .lion, .zebra, .ostrich, .horse, .tiger, .beaver, .raccoonkid, .elephant, .hippo, .rhino, .mouse, .turtle,
              .shark, .mole, .bee, .parrot, .koala, .panda,
              .deer, .redpanda, .moose, .kangaroo, .giraffe, .capybara: UIColor(hex: 0xF4EBDD)
-        case .trex, .triceratops, .stegosaurus, .velociraptor, .brachiosaurus, .spinosaurus, .ankylosaurus, .pteranodon, .parasaurolophus, .diplodocus, .pachycephalosaurus, .allosaurus: UIColor(hex: 0xD8CDB8)
+        case .trex, .triceratops, .stegosaurus, .velociraptor, .brachiosaurus, .spinosaurus, .ankylosaurus, .pteranodon, .parasaurolophus, .diplodocus, .pachycephalosaurus, .allosaurus, .styracosaurus, .iguanodon, .carnotaurus, .therizinosaurus, .gallimimus, .dilophosaurus, .mosasaurus, .elasmosaurus, .ichthyosaurus, .megalodon: UIColor(hex: 0xD8CDB8)
         }
     }
 

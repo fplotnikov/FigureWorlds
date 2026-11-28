@@ -150,6 +150,7 @@ final class WorldCoordinator: NSObject {
         friend = Walker(look: friendLook, at: v.start + SIMD2<Float>(1.4, 0.7), yaw: .pi)
         lastLook = look
         lastFriendLook = friendLook
+        v.letSwimmerIn(look.animal.isSwimmer)
         lastRequestID = initialRequestID
         self.controls = controls
         super.init()
@@ -239,6 +240,7 @@ final class WorldCoordinator: NSObject {
 
     func apply(look: Look, friendLook: Look, request: ActionRequest?, keepGoing: Bool) {
         if look != lastLook {
+            village.letSwimmerIn(look.animal.isSwimmer)   // sea figures may swim into the pond
             me.rig.setLook(look)
             lastLook = look
             sparkleMe = true
@@ -1501,6 +1503,7 @@ final class WorldCoordinator: NSObject {
         village.root.removeFromParent()
         let v = Village(scene: place)
         village = v
+        v.letSwimmerIn(lastLook.animal.isSwimmer)
         world.addChild(v.root)
         me.reset(at: v.start, yaw: .pi)
         friend.reset(at: v.start + SIMD2<Float>(1.4, 0.7), yaw: .pi)

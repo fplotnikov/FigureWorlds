@@ -32,7 +32,8 @@ final class RealModelLibrary {
         .lion: "lion", .zebra: "zebra", .ostrich: "ostrich", .horse: "horse", .tiger: "tiger", .beaver: "beaver", .raccoonkid: "raccoonkid", .elephant: "elephant", .hippo: "hippo", .rhino: "rhino", .mouse: "mouse", .turtle: "turtle",
         .shark: "shark", .mole: "mole", .bee: "bee", .parrot: "parrot", .koala: "koala", .panda: "panda",
         .deer: "deer", .redpanda: "redpanda", .moose: "moose", .kangaroo: "kangaroo", .giraffe: "giraffe", .capybara: "capybara",
-        .trex: "trex", .triceratops: "triceratops", .stegosaurus: "stegosaurus", .velociraptor: "velociraptor", .brachiosaurus: "brachiosaurus", .spinosaurus: "spinosaurus", .ankylosaurus: "ankylosaurus", .pteranodon: "pteranodon", .parasaurolophus: "parasaurolophus", .diplodocus: "diplodocus", .pachycephalosaurus: "pachycephalosaurus", .allosaurus: "allosaurus"
+        .trex: "trex", .triceratops: "triceratops", .stegosaurus: "stegosaurus", .velociraptor: "velociraptor", .brachiosaurus: "brachiosaurus", .spinosaurus: "spinosaurus", .ankylosaurus: "ankylosaurus", .pteranodon: "pteranodon", .parasaurolophus: "parasaurolophus", .diplodocus: "diplodocus", .pachycephalosaurus: "pachycephalosaurus", .allosaurus: "allosaurus",
+        .styracosaurus: "styracosaurus", .iguanodon: "iguanodon", .carnotaurus: "carnotaurus", .therizinosaurus: "therizinosaurus", .gallimimus: "gallimimus", .dilophosaurus: "dilophosaurus", .mosasaurus: "mosasaurus", .elasmosaurus: "elasmosaurus", .ichthyosaurus: "ichthyosaurus", .megalodon: "megalodon"
     ]
 
     /// A robot's vehicle (models/make_vehicle.py): what it changes into when it runs.

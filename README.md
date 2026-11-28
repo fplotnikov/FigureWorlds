@@ -89,8 +89,17 @@ would hide the animal, and it never goes outside the fence.
   The chooser also has all of Fedir's creatures, robots and animatronics (18 of each, Nov 22, 2026),
   the same as Figure Shelf: the first ten of each were copied in alongside the new ones. That is
   their `.usdz`, `_clips.json`, `_skin_*.jpg` and `_thumb.png` files, the robots' `_vehicle.usdz`
-  and the vehicle and servo sounds. Resources are now about 307 MB. The dinosaurs are not in
-  Figure Worlds yet. Fedir's second set of
+  and the vehicle and servo sounds. Resources are now about 307 MB. The 22 dinosaurs are in too
+  (Nov 27, 2026, about 58 MB): the 12 earlier ones, plus Styracosaurus, Iguanodon, Carnotaurus,
+  Therizinosaurus, Gallimimus and Dilophosaurus, and the sea species Mosasaur, Elasmosaurus,
+  Ichthyosaur and Megalodon. They reuse Figure Shelf's models, rigs and clips; no Meshy credits.
+  - **Sea species on land:** they glide just above the ground, playing their swim loop.
+  - **Water sounds:** splashes and swishes (`sfx_sea_*`) instead of footsteps and rawrs.
+  - **At the Forest Pond:** when the player's figure is a sea species, the pond stops blocking the
+    way (`Village.letSwimmerIn`), so tapping the water sends it swimming in. Tapping the land
+    brings it back.
+  - **No new limits:** nothing is gated and every tap still goes somewhere.
+  - **Screenshots:** `screenshots-prehistoric/` (not committed). Fedir's second set of
   creatures (Pleatbill, Coilusk, Siftrunk, Spindlecrab, Ripplemantis, Tuftwhale, Knotcko and
   Cupspinner, Nov 22, 2026) was added the same way: its `.usdz`, `_clips.json`, `_skin_*.jpg` and
   `_thumb.png` files are in `Resources/`. Screenshots are in `screenshots-creatures-2/`.

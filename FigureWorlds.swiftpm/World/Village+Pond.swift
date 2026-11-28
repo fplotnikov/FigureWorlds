@@ -30,7 +30,7 @@ extension Village {
         water.position = [c.x, 0.03, c.y]
         root.addChild(water)
         cylinder(h: 0.01, r: r * 0.6, 0x5FB4D9, at: [c.x, 0.058, c.y - 1.5], in: root)
-        addCircle(c, r - 0.25)
+        pondWater = addCircle(c, r - 0.25)
 
         // Reeds and rocks around the edge (not where the stones, boat and path meet the shore).
         var k = 0
